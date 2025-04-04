@@ -1,0 +1,274 @@
+body{
+    background-color: blue !important;
+    /*Khai báo !important khiến cho việc khai báo một thuộc tính kiểu trở lên quan trọng*/
+
+    all:inherit initial unset;
+    /*initial: thiết lập toàn bộ các thuộc tính trở về giá trị mặc định.
+    inherit: thiết lập toàn bộ các thuộc tính kế thừa từ phần tử cha.
+    unset (mặc định): thiết lập toàn bộ các thuộc tính kế thừa từ phần tử cha nếu đó là những thuộc tính mặc định sẽ kế thừa từ cha.*/
+}
+    /*Bộ chọn tổ hợp (Combinator)
+    thể hiện mối quan hệ giữa các selector, cho phép kết hợp các selector lại với nhau dưới dạng các chuỗi ký tự.*/
+    h1 p{}
+    /*Bộ chọn con cháu (sử dụng dấu khoảng trắng)*/
+    h2 > p{}
+    /*Bộ chọn con (sử dụng dấu >)*/
+    h3 + p{}
+    /*Bộ chọn anh em liền kề (sử dụng dấu +)*/
+    h4 ~ p{}
+    /*Bộ chọn anh em (sử dụng dấu ~)*/
+
+
+    /*Bộ chọn lớp giả
+    được sử dụng để xác định tình trạng đặc biệt của một phần tử */
+    selector:pseudo-class {
+        property:value;
+       }
+
+    a:link {
+        color: #FF0000;
+       }
+    a:visited {
+        color: #00FF00;
+       }
+    a:hover {
+        color: #FF00FF;
+       }
+    /*a:hover phải sau a:link và a:visited*/
+    a:active {
+        color: #0000FF;
+       }
+    /*a:active phải sau a:hover*/
+
+    /*Lớp giả :first-child so khớp với một phần tử là con đầu của phần tử khác
+    Ví dụ: Chọn ra thẻ <p> đầu tiên mà không chọn các thẻ <p> khác.*/
+    p:first-child 
+    {
+        color: blue;
+    }
+    
+    /*Chọn phần tử <input> đã được chọn (checked)*/
+    input:checked{}
+
+    /*Chọn phần tử <input> bị vô hiệu hóa (disabled)*/
+    input:disabled{}
+
+    /*Chọn phần tử <p> không có con*/
+    p:empty{}
+
+    /*Chọn phần tử <input> được không bị vô hiệu hoá*/
+    input:enabled{}
+
+    /*<input> có giá trị không hợp lệ*/
+    input:invalid{}
+
+    /*<p> với một giá trị thuộc tính lang bắt đầu với "it"*/
+    p:lang(it){}
+
+    /*<p> là con cuối cùng*/
+    p:last-child{}
+
+    /*Không phải là <p>*/
+    :not(p){}
+
+    /*<p> là con thứ n*/
+    p:nth-child(n){}
+
+    /*<p> là con thứ n của cha, kể từ con cuối cùng*/
+    p:nth-last-child(n){}
+
+    /*<p> là con duy nhất*/
+    p:only-child{}
+
+    /*<input> với một giá trị không nằm trong khoảng*/
+    input:out-of-range{}
+
+    /*<input> với thuộc tính "readonly"*/
+    input:read-only{}
+
+    /*<input> không có thuộc tính "readonly"*/
+    input:read-write{}
+
+    /*<input> có thuộc tính "required"*/
+    input:required{}
+
+    /*<input> có giá trị hợp lệ*/
+    input:valid{}
+
+
+    /*Bộ chọn phần tử giả
+    được sử dụng để xác định ra những phần tử không tồn tại, thường sẽ thuộc một phần tử có thật.*/
+
+    /*Phần tử giả ::first-line được sử dụng để thêm một phong cách riêng cho dòng đầu tiên của văn bản. 
+    Ví dụ sau định dạng dòng đầu tiên của văn trong tất cả phần tử <p>:*/
+    p::first-line {
+        color: #ff0000;
+        font-variant: small-caps;
+       }
+    /*Các phần tử giả ::first-line chỉ có thể được áp dụng cho các phần tử ở mức khối (block).*/
+
+    /*Phần tử giả ::first-letter được sử dụng để thêm một phong cách riêng cho các chữ cái đầu tiên của một văn bản.*/
+    p::first-letter {
+        color: #ff0000;
+        font-size: xx-large;
+       }
+    /*Các phần tử giả ::first-letter chỉ có thể được áp dụng cho các phần tử khối ví dụ như phần tử p.*/
+
+    /*Phần tử giả ::before có thể được sử dụng để chèn một số nội dung trước nội dung của một phần tử.*/
+    h1::before{
+        content:url(smiley.gif);
+       }
+    
+    /*::after có thể được sử dụng để chèn một số nội dung sau nội dung của một phần tử*/
+    h1::after{
+        content:url(smiley.gif);
+       }
+
+    /*::selection xác định các nội dung được chọn bởi người dùng*/
+    ::selection{
+        color:red;
+        background:yellow;
+       }
+    
+
+    /*hệ thập lục (Hexadecimal) sử dụng mã màu gồm có các thành phần RGB.*/
+    #p1{background-color:#ff0000;} /* red */
+    #p1 {background-color: rgb(255, 0, 0);} /* Màu đỏ */
+    /*<h2 style="background-color:hsl(0, 100%, 50%);">hsl(0, 100%, 50%)</h2>*/
+
+    /*<div style="opacity: 1;">Độ trong suốt: 1</div>
+    <div style="opacity: 0.75;">Độ trong suốt: 0.75</div>*/
+
+
+    h1{
+        background-position: right top;
+        /*background-attachment cho phép hình nền nên di chuyển hoặc được cố định*/
+        background-attachment: fixed;
+    }
+
+    p.dotted{border-style:dotted;}/*chấm*/
+    p.dashed{border-style:dashed;}/*nét đứt*/
+    p.solid{border-style:solid;}/*liền*/
+    p.double{border-style:double;}/*đôi*/
+    p.groove{border-style:groove;}/*rãnh 3d*/
+    p.ridge{border-style:ridge;}/*gờ 3d*/
+    p.inset{border-style:inset;}/*chìm*/
+    p.outset{border-style:outset;}/*nổi*/
+    p.none{border-style:none;}/*ko*/
+    p.hidden{border-style:hidden;}/*ẩn*/
+    p.mix{border-style:dotted dashed solid double;}   
+
+    /*text-align để căn (trái, phải, giữa) cho văn bản.*/
+    h1 {
+        text-align: center;
+       }
+
+    /*text-align được đặt thành "justify", mỗi dòng được kéo dài sao cho mỗi dòng có chiều rộng bằng nhau.*/
+    div {
+        text-align: justify;
+       }
+
+    /*text-decoration được sử dụng để thiết lập (hoặc loại bỏ) trang trí văn bản.*/
+    h2 {
+        text-decoration: overline;
+       }
+    h3 {
+        text-decoration: line-through;
+       }
+    h4 {
+        text-decoration: underline;
+       }
+
+    /*text-transform được sử dụng để xác định chữ hoa và chữ thường trong một văn bản.*/
+    p.uppercase{
+        text-transform:uppercase;
+       }
+    p.lowercase{
+        text-transform:lowercase;
+       }
+    p.capitalize {
+        text-transform:capitalize;
+       }
+
+    /*text-indent được dùng để xác định thụt đầu dòng của dòng đầu tiên của một văn bản.*/
+    p{
+        text-indent:50px;
+       }
+    
+    /* letter-spacing được sử dụng để xác định khoảng cách giữa các ký tự trong một văn bản.*/
+    h1{
+        letter-spacing:3px;
+       }
+
+    /*word-spacing được sử dụng để xác định khoảng cách giữa các từ trong một văn*/
+       h2{
+        word-spacing:-5px;
+       }
+
+    /*line-height được dùng để tăng/giảm khoảng cách giữa các dòng.*/
+    p.small{
+        line-height:0.8;
+       }
+       
+    /*direction được sử dụng để thay đổi hướng văn bản. */
+    p{
+        direction:rtl;/*right to left*/
+       }
+    
+    /*font-family: được sử dụng để thay đổi bề mặt font.
+
+    font-style: được sử dụng để tạo một font chữ nghiêng hoặc chếch.
+
+    font-variant: được sử dụng để tạo những chữ hoa nhỏ (small-cap).
+
+    font-weight: được sử dụng để tăng giảm độ đậm của font.
+
+    font-size: được sử dụng để xác định kích cỡ font. */
+    
+    
+    /*Thuộc tính list-style-type cho phép kiểm soát hình dạng hay bề ngoài của các dấu đầu dòng (giống như Bullet), chẳng hạn như dạng hình tròn, hình vuông, hay dạng số.
+
+    none: Không hiển thị.
+
+    disc (mặc định): Một dấu chấm tròn.
+
+    circle: Một vòng tròn trống.
+
+    square: Một hình vuông.
+
+    Thuộc tính list-style-position xác định rằng các dấu đầu dòng nên xuất hiện bên trong hay bên ngoài luồng hiển thị nội dung.
+
+    Thuộc tính list-style-image sử dụng một hình ảnh để làm các dấu đầu dòng.
+
+    Thuộc tính marker-offset xác định khoảng cách giữa một dấu đầu dòng và phần văn bản trong danh sách.
+
+    Thuộc tính list-style sử dụng thuộc tính này để có thể khai báo một lần mà vẫn có thể xác định được tất cả các thuộc tính trên.*/
+
+
+    /*counter-reset: tạo ra hoặc reset bộ đếm.
+
+    counter-increment: tăng giá trị truy cập.
+
+    content: chèn một nội dung.*/
+    body{
+        counter-reset:section;
+       }
+    h2::before{
+        counter-increment:section;
+        content:"Section " counter(section) ": ";
+       }
+
+       :root {
+        --primary-color: #1abc9c;
+        --primary-dark-color: #00a886;
+       }
+    /*Để sử dụng biến, dùng hàm var(). Cú pháp hàm var() như sau:
+    var(custom-name, value)*/
+
+    input[type=reset] {
+        padding: 10px;
+        font-size: 18px;
+        border: 1px solid var(--primary-color);
+        background-color: white;
+        color: var(--primary-dark-color);
+       }
